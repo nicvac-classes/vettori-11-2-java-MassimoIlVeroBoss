@@ -1,26 +1,28 @@
-//LEGGERE LE ISTRUZIONI NEL FILE README.md
-
-//Import di Classi Java necessarie al funzionamento del programma
 import java.util.Scanner;
+import java.lang.Math;
 
-// Classe principale, con metodo main
-class Esercizio {
-    // Il programma parte con una chiamata a main().
-    public static void main(String args[])
-    {
-        //Variabili del programma
-        String nome;
+public class Program {
+    private static Scanner input = new Scanner(System.in);
 
-        //Creo l'oggetto in per l'input da tastiera
-        Scanner in = new Scanner( System.in );
+    public static void main(String[] args) {
+        int i, j, n;
 
-        //Leggo l'input da tastiera
-        System.out.print("Inserisci il tuo nome: ");
-        nome = in.nextLine();
+        do {
+            System.out.println("Inserire dimensione del vettore: ");
+            n = input.nextInt();
+        } while (n < 0);
+        double[] carlone = new double[n];
 
-        //Output del nome acquisito da tastiera
-        System.out.println("Ciao "+nome+"!");
+        for (i = 0; i <= n - 1; i++) {
+            System.out.println("Inserire il valore della " + (i + 1) + " cella del vettore: ");
+            carlone[i] = input.nextDouble();
+        }
+        for (i = 0; i <= n - 2; i++) {
+            for (j = 0; j <= n - 1; j++) {
+                if (carlone[i] == carlone[j]) {
+                    System.out.println("Il valore " + carlone[i] + " occorre nelle posizioni " + (i + 1) + " e " + (j + 1) + ". E stato inserito 2 volte");
+                }
+            }
+        }
     }
 }
-
-//LEGGERE LE ISTRUZIONI NEL FILE README.md
